@@ -1,0 +1,16 @@
+BTF_ENCODER NOTES
+* We want to add all the read BTF info into the encoder state and ALSO do kfunc tagging and transforms. We do not want to actually encode DAWRF.
+
+*for btf_encoder__encode_cu, this runs per-cu, so we want to get all of the "valid" kfunc candidates in the list of funcs in the encoder, I guess. this uses btf_encoder__save_func.
+
+* later, when btf_encoder__encode runs, it should have all of the functions from each cu in the state, so then it can just tag them.
+
+* Thinking now, this could all be done in the loader -- the only issue is that the writeout would still have to be done from the encoder I think.
+
+* Though btf_encoder__encode only takes the conf and the encoder as args, so it's expecting a fully loaded encoder state. I don't think it makes sense to do all of that.
+
+* instead, let's copy the logic from the encoder writeout and place that where btf_encoder__encode is called (conditionally)
+
+* Looking now, it seems that the logic to determine if something is a kfunc is actually a bit complex, so it might be better to use the existing logic to create the state of the functions per-cu, check if they are kfuncs at encode time, and then add the tags with libctf.
+
+* when a new encoder is created, the kfuncs for the relevant cu are loaded into a list for the encoder. This information comes from the ELF, not the dwarf. We don't have to touch that. What we want to do is to get the symbols from those collected elf func structs, find the functions they reference in the ctf dict, add the appropriate tags to the dict, and point them to the functions. This all happens in the call to btf_encoder__encode_cu that already happens in the libctf loader. The collection happens per-cu, so the tagging should also be done per-cu. Then -- back in the libctf loader -- we have a perfect ctf dict. Let's just do this for all cus in the archive, and then link. Currently we're just looking at the first dict in the archive in the loader code.
