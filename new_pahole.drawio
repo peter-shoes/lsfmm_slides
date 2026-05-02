@@ -1,0 +1,57 @@
+<mxfile host="Electron">
+  <diagram name="Page-1" id="r_FGBvO1R4_X0kXEW-PC">
+    <mxGraphModel dx="1414" dy="843" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="mTh6GjVc5oX-D0yPZf24-6" edge="1" parent="1" source="mTh6GjVc5oX-D0yPZf24-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="mTh6GjVc5oX-D0yPZf24-5" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mTh6GjVc5oX-D0yPZf24-3" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Load BTF with libctf&amp;nbsp;" vertex="1">
+          <mxGeometry height="80" width="80" x="200" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="pQvxINxcHjVKGCX45wKp-16" edge="1" parent="1" source="mTh6GjVc5oX-D0yPZf24-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pQvxINxcHjVKGCX45wKp-15" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mTh6GjVc5oX-D0yPZf24-5" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Deduplicating Link" vertex="1">
+          <mxGeometry height="80" width="80" x="320" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="mTh6GjVc5oX-D0yPZf24-26" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Encode" vertex="1">
+          <mxGeometry height="140" width="360" x="540" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="mTh6GjVc5oX-D0yPZf24-27" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Load" vertex="1">
+          <mxGeometry height="140" width="360" x="180" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="pQvxINxcHjVKGCX45wKp-1" parent="1" style="triangle;whiteSpace=wrap;html=1;" value="vmlinux" vertex="1">
+          <mxGeometry height="80" width="80" x="920" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="pQvxINxcHjVKGCX45wKp-3" edge="1" parent="1" source="pQvxINxcHjVKGCX45wKp-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="mTh6GjVc5oX-D0yPZf24-3" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pQvxINxcHjVKGCX45wKp-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="$ pahole -J&lt;div&gt;-F libctf&lt;br&gt;&lt;div&gt;&amp;lt;vmlinux with BTF&amp;gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="130" x="30" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="pQvxINxcHjVKGCX45wKp-7" edge="1" parent="1" source="pQvxINxcHjVKGCX45wKp-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="pQvxINxcHjVKGCX45wKp-8" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="680" y="120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pQvxINxcHjVKGCX45wKp-4" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Tag kfuncs" vertex="1">
+          <mxGeometry height="80" width="80" x="560" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="pQvxINxcHjVKGCX45wKp-10" edge="1" parent="1" source="pQvxINxcHjVKGCX45wKp-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pQvxINxcHjVKGCX45wKp-1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pQvxINxcHjVKGCX45wKp-8" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Write to file or ELF" vertex="1">
+          <mxGeometry height="80" width="80" x="800" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="pQvxINxcHjVKGCX45wKp-17" edge="1" parent="1" source="pQvxINxcHjVKGCX45wKp-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pQvxINxcHjVKGCX45wKp-4" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pQvxINxcHjVKGCX45wKp-15" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Parse types for IR" vertex="1">
+          <mxGeometry height="80" width="80" x="440" y="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
